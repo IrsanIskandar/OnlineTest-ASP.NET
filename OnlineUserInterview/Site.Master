@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="OnlineUserInterview.Site" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Include CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/timeTo.css" rel="stylesheet" />
+    <title>Operation Interview Test</title>
+
+    <style>
+        footer {
+            background-color: #929292;
+            position: fixed;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            height: 35px;
+            text-align: center;
+            color: #CCC;
+        }
+
+        footer p {
+            color: #FFFFFF;
+            padding: 10.5px;
+            margin: 0px;
+            line-height: 100%;
+        }
+    </style>
+
+    <%-- Js Component Library --%>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="scripManager" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery-3.3.1.min.js" />
+                <asp:ScriptReference Path="~/Scripts/popper.min.js" />
+                <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery-ui-1.12.1.min.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery.time-to.min.js" />
+                <%--<asp:ScriptReference Path="~/Scripts/ServicesJS.js" />--%>
+            </Scripts>
+            <Services>
+                <asp:ServiceReference Path="~/OnlineTestService.asmx" />
+            </Services>
+        </asp:ScriptManager>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-auto">
+                    <asp:Image CssClass="img-fluid" ID="imgLogo" runat="server" ImageUrl="~/Image/InfinetworksLogoPSDw900h90.png" />
+                </div>
+            </div>
+            <br />
+            <asp:ContentPlaceHolder ID="HomeRegister" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="PageQuestions" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="PageCongratulation" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <br />
+    <footer class="align-bottom">
+        <p>&copy; <%= DateTime.Now.Year %> <a style="color: #0069D9; text-decoration: none;" href="https://www.infinetworks.com/">Infinetworks</a>, All rights reserved.</p>
+    </footer>
+</body>
+</html>

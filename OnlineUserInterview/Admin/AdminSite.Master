@@ -1,0 +1,108 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="OnlineUserInterview.Admin.AdminSite" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Infinetworks</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../Content/Pagination.css" rel="stylesheet" />
+    <style>
+        footer {
+            background-color: #929292;
+            position: fixed;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            height: 35px;
+            text-align: center;
+            color: #CCC;
+            z-index: 99999;
+        }
+
+            footer p {
+                color: #FFFFFF;
+                padding: 10.5px;
+                margin: 0px;
+                line-height: 100%;
+            }
+    </style>
+
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery-ui-1.12.1.min.js"></script>
+    <%-- Sweet Alert Js --%>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Infinetworks Admin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link active" href="../Admin/AdminContent.aspx"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                    <asp:HyperLink ID="lnkDataUser" CssClass="nav-item nav-link active" NavigateUrl="#" runat="server">
+                        <i class="fa fa-database"></i>
+                        Add User
+                    </asp:HyperLink>
+                </div>
+                <div class="navbar-nav">
+                    <div class="nav-item dropdown">
+                        <a id="navbarDropdown" runat="server" class="nav-link dropdown-toggle active" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                            <a class="nav-item nav-link" runat="server" onserverclick="linkSignout_ServerClick" id="linkSignout" href="../Admin/LoginAdmin.aspx"><i class="fa fa-sign-out"></i> Sign Out</a>
+                            <a class="nav-item nav-link" runat="server" id="linkProfile" href="#"><i class="fa fa-user-circle-o"></i> Profile Setting</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-auto">
+                    <asp:Image CssClass="img-fluid" ID="imgLogo" runat="server" ImageUrl="~/Image/InfinetworksLogoPSDw900h90.png" />
+                </div>
+            </div>
+            <br />
+            <asp:ContentPlaceHolder ID="AdminContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="AdminLogin" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="PrintViewer" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer class="align-bottom">
+        <p>&copy; <%= DateTime.Now.Year %> <a style="color: #0069D9; text-decoration: none;" href="https://www.infinetworks.com/">Infinetwork</a>, All rights reserved.</p>
+    </footer>
+
+    <script>
+        let addUser = document.getElementById('lnkDataUser');
+        let profileSetting = document.getElementById('linkProfile');
+
+        addUser.addEventListener("click", function () {
+            swal({
+                title: "Comming Soon",
+                text: "This menu is still under development.",
+                icon: "warning",
+            });
+        });
+
+        profileSetting.addEventListener("click", function () {
+            swal({
+                title: "Comming Soon",
+                text: "This menu is still under development.",
+                icon: "warning",
+            });
+        });
+    </script>
+</body>
+</html>
